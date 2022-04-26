@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <property name="loggerPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%F:%L] : %m%n"/>
+
+    <!-- 默认的控制台日志输出 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <!-- 使用自定义的 PatternLayout -->
+            <layout class="org.example.desensitization.log.DesensitizationDataPatternLayout">
+                <pattern>${loggerPattern}</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="stdout"/>
+    </root>
+
+</configuration>

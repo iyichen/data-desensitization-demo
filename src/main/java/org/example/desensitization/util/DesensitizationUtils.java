@@ -11,6 +11,8 @@ public final class DesensitizationUtils {
                 return new StringBuilder(text).replace(1, 2, "*").toString();
             case ID_CARD:
                 return new StringBuilder(text).replace(6, 14, "********").toString();
+            case PASSWORD:
+                return "******";
             default:
                 return text;
         }
@@ -20,5 +22,6 @@ public final class DesensitizationUtils {
     public enum DesensitizationType {
         NAME,
         ID_CARD,
+        PASSWORD,
     }
 }
